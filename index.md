@@ -1,37 +1,93 @@
-## Welcome to GitHub Pages
+数组，是一种容器，可以存放多个数据值
+数组的特点：
+1.数组是一种引用数据类型（一共八种基本数据类型）
+        {
+            八种基本数据类型:int ,long ,short,byte,double,
+                            char ,boolean,float
+        默认值情况
+        //使用动态初始化，其中的元素会自动拥有一个默认值，规则如下
+            //类型        默认值
+            //int             0
+            //double         0.0
+            //字符类型       \u0000
+            //boolean       flase
+            //引用类型        null
 
-You can use the [editor on GitHub](https://github.com/pyf60/112221pw/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
+        }
+2.数组当中多个数据类型必须统一
+3.数组的长度在数组运行期间不可改变
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+数组的初始化：在内存中创建一个数组，并向其中赋予一些静态值
 
-### Markdown
+两种常见初始化方式{
+    1.静态初始化（指定长度）  数组类型[] 数组名称=new 数据类型[]{元素1，元素2，元素3，元素4}；
+    2.动态初始化（指定内容）  数组类型[] 数组名称=new 数据类型[数组长度];
+    数组元素赋值： Array[1]=123;
+    3.直接赋值 数组类型[] 数组名称={元素1，元素2}; 
+            int[] ArrayA={10,20,30,40,50};//省略格式的静态初始化
+注意：虽然静态初始化没有直接告诉长度，但是根据大括号里面的元素具体内容，也可以具体推测出来长度
+ }
+解析含义：
+{
+        左侧 数据类型，也就是数组当中保存的数据，全都是统一什么类型
+        左侧中括号，代表我是一个数组
+        左侧数组名称，给数组取一个名字
+        右侧new，代表创建一个数组
+        右侧数据类型，必须和左边数据类型保持一样
+        右侧中括号的长度，也就是数组当中，到底可以保存多少个数组，是一个int型
+}
+//注意事项：
+1. 虽然静态初始化没有直接告诉长度，但是根据大括号里面的元素具体内容，也可以具体推测出来长度
+2.静态初始化可以拆分成两个步骤
+  ///2.静态初始化可以拆分成两个步骤
+        int[] ArrayB;
+        ArrayB=new int[]{10,20,30,40,50};
+3.动态初始化可以拆分成两个步骤
+        int[] ArrayC;
+        ArrayB=new int[5];
+4.静态初始化一旦使用省略格式，就不能拆分为两个格式
+//        4.静态初始化一旦使用省略格式，就不能拆分为两个格式
+//
+//        int[] ArrayD;
+//        ArrayD={10,20,30};
+5.使用建议
+1.如果不指定数组中的内容，使用动态初始化，如果已经确定具体的内容，用静态初始化
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
-```markdown
-Syntax highlighted code block
 
-# Header 1
-## Header 2
-### Header 3
 
-- Bulleted
-- List
 
-1. Numbered
-2. List
+      
 
-**Bold** and _Italic_ and `Code` text
 
-[Link](url) and ![Image](src)
-```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
 
-### Jekyll Themes
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/pyf60/112221pw/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
 
-### Support or Contact
+数组的常见使用方式：1.直接使用输出
+  访问数组元素格式
+                数组名称[索引值]
+        索引值从0开始，到数组长度减一为止
+        System.out.println(Array[0]);//10      
+         索引最大值为长度减一
+         2. 没有指定索引，指出的是数组地址
+         System.out.println(Array);
+         3.求出数组长度
+         格式：数组名.length;
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+
+常见异常
+//所以的引用类型变量，都可以赋值为一个NUll值，但是代表什么都没有
+/*数组必须进行new初始化，才能使用其中的元素，
+        如果只是赋值null，没有进行new创建，那么将会空指针异常
+        NullPointerException*/
+/*原因 ：忘记new
+措施：补上new*/
+public class Demo02ArrayNull {
+    public static void main(String[] args) {
+        int[] Array=null;
+        Array=new int[5];
+        System.out.println(Array[0]);
+    }
+}
+
